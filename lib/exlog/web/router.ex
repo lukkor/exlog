@@ -1,4 +1,4 @@
-defmodule Exlog.Router do
+defmodule Exlog.Web.Router do
   use Exlog.Web, :router
 
   pipeline :browser do
@@ -13,14 +13,14 @@ defmodule Exlog.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Exlog do
+  scope "/", Exlog.Web do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Exlog do
+  # scope "/api", Exlog.Web do
   #   pipe_through :api
   # end
 end

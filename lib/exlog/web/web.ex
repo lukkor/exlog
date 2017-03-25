@@ -16,32 +16,19 @@ defmodule Exlog.Web do
   below.
   """
 
-  def model do
-    quote do
-      use Ecto.Schema
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-    end
-  end
-
   def controller do
     quote do
-      use Phoenix.Controller
-
-      alias Exlog.Repo
-      import Ecto
-      import Ecto.Query
-
-      import Exlog.Router.Helpers
-      import Exlog.Gettext
+      use Phoenix.Controller, namespace: Exlog.Web
+      import Plug.Conn
+      import Exlog.Web.Router.Helpers
+      import Exlog.Web.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "web/templates"
+      use Phoenix.View, root: "lib/exlog/web/templates",
+                        namespace: Exlog.Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
@@ -49,26 +36,24 @@ defmodule Exlog.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Exlog.Router.Helpers
-      import Exlog.ErrorHelpers
-      import Exlog.Gettext
+      import Exlog.Web.Router.Helpers
+      import Exlog.Web.ErrorHelpers
+      import Exlog.Web.Gettext
     end
   end
 
   def router do
     quote do
       use Phoenix.Router
+      import Plug.Conn
+      import Phoenix.Controller
     end
   end
 
   def channel do
     quote do
       use Phoenix.Channel
-
-      alias Exlog.Repo
-      import Ecto
-      import Ecto.Query
-      import Exlog.Gettext
+      import Exlog.Web.Gettext
     end
   end
 

@@ -10,10 +10,10 @@ config :exlog,
   ecto_repos: [Exlog.Repo]
 
 # Configures the endpoint
-config :exlog, Exlog.Endpoint,
+config :exlog, Exlog.Web.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "dF2R+ZVbMQz4RMdJ8MASYjozrdin9hLSftlF8nuLk0IY9bY8WiOkJ4AIO0tz7x7o",
-  render_errors: [view: Exlog.ErrorView, accepts: ~w(html json)],
+  secret_key_base: "sesTsyzldKXTD9uBqtvMcsN8xFjUDLr8Cb+kTKVdEozSmVhyx+ReVeAta9va30ZE",
+  render_errors: [view: Exlog.Web.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Exlog.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

@@ -1,4 +1,4 @@
-defmodule Exlog.PageController do
+defmodule Exlog.Web.PageController do
   use Exlog.Web, :controller
 
   def index(conn, _params) do

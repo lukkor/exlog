@@ -1,4 +1,4 @@
-defmodule Exlog.ErrorView do
+defmodule Exlog.Web.ErrorView do
   use Exlog.Web, :view
 
   def render("404.html", _assigns) do

@@ -1,5 +1,5 @@
-defmodule Exlog.PageControllerTest do
-  use Exlog.ConnCase
+defmodule Exlog.Web.PageControllerTest do
+  use Exlog.Web.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

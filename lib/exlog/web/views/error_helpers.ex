@@ -1,4 +1,4 @@
-defmodule Exlog.ErrorHelpers do
+defmodule Exlog.Web.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Exlog.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Exlog.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Exlog.Web.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Exlog.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Exlog.Web.Gettext, "errors", msg, opts)
     end
   end
 end
